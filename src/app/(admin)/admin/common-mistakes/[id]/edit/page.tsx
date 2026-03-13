@@ -71,7 +71,7 @@ export default function EditCommonMistakePage() {
     fetchData();
   }, [id]);
 
-  const handleChange = (field: string, value: any) => {
+  const handleChange = (field: string, value: string | number) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -125,7 +125,7 @@ export default function EditCommonMistakePage() {
           </Button>
         </Link>
         <h1 className="text-2xl font-medium text-gray-900 dark:text-white">
-          Modifier l'erreur courante
+          Modifier l&apos;erreur courante
         </h1>
       </div>
 

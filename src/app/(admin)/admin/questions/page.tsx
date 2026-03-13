@@ -152,12 +152,14 @@ export default function QuestionsPage() {
       const preview = data.slice(0, 3);
       const confirmed = window.confirm(
         `${data.length} questions à importer.\n\nAperçu:\n${preview
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           .map((q: any) => q.question_text?.substring(0, 50))
           .join("\n")}\n\nContinuer?`
       );
 
       if (confirmed) {
-        const questionsToInsert = data.map((q: any) => ({
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const questionsToInsert: Question[] = data.map((q: any) => ({
           id: crypto.randomUUID(),
           chapter_id: q.chapter_id,
           module_id: q.module_id,

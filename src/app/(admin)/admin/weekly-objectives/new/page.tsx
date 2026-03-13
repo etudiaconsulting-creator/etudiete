@@ -25,7 +25,6 @@ export default function NewWeeklyObjectivePage() {
   const [exercises, setExercises] = useState<ExamExercise[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [addAnother, setAddAnother] = useState(false);
   const [form, setForm] = useState({
     program_duration: "1month" as ProgramDuration,
     week_number: 1,
@@ -191,7 +190,7 @@ export default function NewWeeklyObjectivePage() {
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-gray-500 dark:text-gray-400">Sélectionnez un module d'abord</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Sélectionnez un module d&apos;abord</p>
             )}
           </div>
 
@@ -220,7 +219,7 @@ export default function NewWeeklyObjectivePage() {
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-gray-500 dark:text-gray-400">Sélectionnez un module d'abord</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Sélectionnez un module d&apos;abord</p>
             )}
           </div>
 

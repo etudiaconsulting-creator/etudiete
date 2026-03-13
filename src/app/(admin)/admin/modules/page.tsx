@@ -107,7 +107,7 @@ export default function ModulesPage() {
                     Coefficient
                   </th>
                   <th className="text-left py-3 px-4 text-gray-500 dark:text-gray-400 font-medium">
-                    Type d'examen
+                    Type d&apos;examen
                   </th>
                   <th className="text-left py-3 px-4 text-gray-500 dark:text-gray-400 font-medium">
                     Nb chapitres

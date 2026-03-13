@@ -249,7 +249,7 @@ export default function ProgressPage() {
         </Card>
         <Card className="text-center py-4">
           <p className="text-3xl font-medium text-gray-900 dark:text-white">{daysLeft}</p>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Jours avant l'examen</p>
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Jours avant l&apos;examen</p>
         </Card>
       </div>
     </div>

@@ -20,7 +20,6 @@ const PROGRAM_DURATIONS: { value: ProgramDuration; label: string }[] = [
 
 export default function WeeklyObjectivesListPage() {
   const [objectives, setObjectives] = useState<(WeeklyObjective & { module?: Module })[]>([]);
-  const [modules, setModules] = useState<Module[]>([]);
   const [selectedDuration, setSelectedDuration] = useState<ProgramDuration>("1month");
   const [loading, setLoading] = useState(true);
   const [deleteId, setDeleteId] = useState<string | null>(null);
@@ -42,7 +41,6 @@ export default function WeeklyObjectivesListPage() {
         }));
         setObjectives(withModules);
       }
-      if (modRes.data) setModules(modRes.data as Module[]);
       setLoading(false);
     }
     fetch();

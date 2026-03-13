@@ -16,7 +16,6 @@ export default function NewExercisePage() {
   const [modules, setModules] = useState<Module[]>([]);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [addAnother, setAddAnother] = useState(false);
   const [form, setForm] = useState({
     module_id: "",
     title: "",
@@ -132,7 +131,7 @@ export default function NewExercisePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-normal text-gray-700 dark:text-gray-300 mb-1.5">
-                Type d'exercice
+                Type d&apos;exercice
               </label>
               <select
                 value={form.exercise_type}

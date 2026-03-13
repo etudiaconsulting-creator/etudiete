@@ -164,7 +164,7 @@ export default function SettingsPage() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-sm text-gray-700 dark:text-gray-300 mb-1.5">
-                Année d'examen
+                Année d&apos;examen
               </label>
               <select
                 value={examYear}
@@ -178,7 +178,7 @@ export default function SettingsPage() {
             </div>
             <div>
               <label className="block text-sm text-gray-700 dark:text-gray-300 mb-1.5">
-                Année d'études
+                Année d&apos;études
               </label>
               <select
                 value={currentYear}
@@ -232,7 +232,7 @@ export default function SettingsPage() {
                 Mode sombre
               </p>
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                Changer l'apparence de l'application
+                Changer l&apos;apparence de l&apos;application
               </p>
             </div>
           </div>
@@ -257,7 +257,7 @@ export default function SettingsPage() {
           Programme de révision
         </h2>
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-          Ton planning est généré automatiquement en fonction de ta date d'examen et de la durée choisie.
+          Ton planning est généré automatiquement en fonction de ta date d&apos;examen et de la durée choisie.
         </p>
         <div>
           <Button

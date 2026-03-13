@@ -360,7 +360,7 @@ export default function ChapterPage({ params }: { params: { chapterId: string } 
               Conseil de révision
             </p>
             <p className="text-sm text-emerald-700 dark:text-emerald-400 mt-1">
-              Lis attentivement la fiche puis lance le quiz pour ancrer les notions. L'algorithme de répétition espacée te reproposera les questions que tu maîtrises moins bien.
+              Lis attentivement la fiche puis lance le quiz pour ancrer les notions. L&apos;algorithme de répétition espacée te reproposera les questions que tu maîtrises moins bien.
             </p>
           </div>
         </div>

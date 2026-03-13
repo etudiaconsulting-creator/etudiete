@@ -65,8 +65,6 @@ export default function ChaptersPage() {
     ? chapters.filter((c) => c.module_id === selectedModule)
     : chapters;
 
-  const [, setSaving] = useState(false);
-
   const handleDelete = async () => {
     setDeleteDialog((prev) => ({ ...prev, loading: true }));
     try {

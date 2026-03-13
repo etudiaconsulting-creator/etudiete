@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/admin/toast";
 import { createClient } from "@/lib/supabase/client";
 import { Question, Module, Chapter, QuestionType, McqOption } from "@/types/database";

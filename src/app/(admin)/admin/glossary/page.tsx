@@ -18,7 +18,6 @@ interface TermWithModule extends GlossaryTerm {
 
 export default function GlossaryPage() {
   const [terms, setTerms] = useState<TermWithModule[]>([]);
-  const [modules, setModules] = useState<Module[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [deleteDialog, setDeleteDialog] = useState({ open: false, termId: "", loading: false });
@@ -32,11 +31,6 @@ export default function GlossaryPage() {
           .from("modules")
           .select("*")
           .order("order_index");
-
-        if (modulesData) {
-          const modulesTyped = (modulesData as Module[]);
-          setModules(modulesTyped);
-        }
 
         const { data: termsData } = await supabase
           .from("glossary_terms")

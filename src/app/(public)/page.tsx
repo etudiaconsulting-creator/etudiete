@@ -168,7 +168,7 @@ export default function HomePage() {
             </h1>
             <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
               Un programme structuré semaine par semaine, des exercices au format
-              examen, et un système de répétition espacée qui s'adapte à ton rythme.
+              examen, et un système de répétition espacée qui s&apos;adapte à ton rythme.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link href="/auth/register">
@@ -192,7 +192,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-medium text-gray-900 dark:text-white">
-              Tout ce qu'il te faut pour réussir
+              Tout ce qu&apos;il te faut pour réussir
             </h2>
             <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
               Une méthode complète qui couvre les 5 épreuves du BTS Diététique,

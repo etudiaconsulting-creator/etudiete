@@ -113,7 +113,7 @@ export default function RegisterPage() {
               htmlFor="examYear"
               className="block text-sm font-normal text-gray-700 dark:text-gray-300 mb-1.5"
             >
-              Année d'examen
+              Année d&apos;examen
             </label>
             <select
               id="examYear"
@@ -131,7 +131,7 @@ export default function RegisterPage() {
               htmlFor="currentYear"
               className="block text-sm font-normal text-gray-700 dark:text-gray-300 mb-1.5"
             >
-              Année d'études
+              Année d&apos;études
             </label>
             <select
               id="currentYear"

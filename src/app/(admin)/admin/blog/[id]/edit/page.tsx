@@ -75,11 +75,11 @@ export default function EditBlogPage() {
     fetchData();
   }, [id]);
 
-  const handleChange = (field: string, value: any) => {
+  const handleChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({
       ...prev,
       [field]: value,
-      ...(field === "title" && { slug: generateSlug(value) }),
+      ...(field === "title" && typeof value === "string" && { slug: generateSlug(value) }),
     }));
   };
 
@@ -139,7 +139,7 @@ export default function EditBlogPage() {
           </Button>
         </Link>
         <h1 className="text-2xl font-medium text-gray-900 dark:text-white">
-          Modifier l'article
+          Modifier l&apos;article
         </h1>
       </div>
 

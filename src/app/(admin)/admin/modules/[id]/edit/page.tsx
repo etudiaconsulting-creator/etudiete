@@ -45,7 +45,7 @@ export default function EditModulePage() {
     fetchModule();
   }, [moduleId]);
 
-  const handleChange = (field: keyof Module, value: any) => {
+  const handleChange = (field: keyof Module, value: string | number) => {
     if (formData) {
       setFormData({ ...formData, [field]: value });
     }
@@ -161,7 +161,7 @@ export default function EditModulePage() {
               htmlFor="exam_type"
               className="block text-sm font-normal text-gray-700 dark:text-gray-300 mb-1.5"
             >
-              Type d'examen
+              Type d&apos;examen
             </label>
             <select
               id="exam_type"

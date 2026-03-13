@@ -120,7 +120,7 @@ export default function ExercisesPage() {
   const [filterPriority, setFilterPriority] = useState("all");
 
   const filteredAndSorted = useMemo(() => {
-    let filtered = sampleExercises.filter((ex) => {
+    const filtered = sampleExercises.filter((ex) => {
       if (filterModule !== "all" && ex.moduleCode !== filterModule) return false;
       if (filterType !== "all" && ex.type !== filterType) return false;
       if (filterPriority !== "all" && ex.priority !== parseInt(filterPriority)) return false;

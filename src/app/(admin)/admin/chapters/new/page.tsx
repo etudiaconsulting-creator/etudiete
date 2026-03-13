@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { MarkdownEditor } from "@/components/admin/markdown-editor";
 import { useToast } from "@/components/admin/toast";
 import { createClient } from "@/lib/supabase/client";
-import { Module, Chapter } from "@/types/database";
+import { Module } from "@/types/database";
 import { ChevronLeft } from "lucide-react";
 
 export default function NewChapterPage() {
@@ -56,7 +56,7 @@ export default function NewChapterPage() {
     fetchModules();
   }, []);
 
-  const handleChange = (field: string, value: any) => {
+  const handleChange = (field: string, value: string | number) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 

@@ -37,11 +37,11 @@ export default function NewBlogPage() {
     published: false,
   });
 
-  const handleChange = (field: string, value: any) => {
+  const handleChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({
       ...prev,
       [field]: value,
-      ...(field === "title" && { slug: generateSlug(value) }),
+      ...(field === "title" && typeof value === "string" && { slug: generateSlug(value) }),
     }));
   };
 

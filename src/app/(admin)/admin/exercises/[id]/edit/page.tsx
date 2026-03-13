@@ -88,7 +88,7 @@ export default function EditExercisePage() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Modifier l'exercice</h1>
+      <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Modifier l&apos;exercice</h1>
 
       <Card>
         <div className="space-y-6">
@@ -133,7 +133,7 @@ export default function EditExercisePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-normal text-gray-700 dark:text-gray-300 mb-1.5">
-                Type d'exercice
+                Type d&apos;exercice
               </label>
               <select
                 value={form.exercise_type}

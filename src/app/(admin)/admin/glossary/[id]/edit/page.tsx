@@ -79,7 +79,7 @@ export default function EditGlossaryPage() {
     fetchData();
   }, [id]);
 
-  const handleChange = (field: string, value: any) => {
+  const handleChange = (field: string, value: string | number) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -206,7 +206,7 @@ export default function EditGlossaryPage() {
               id="module_id"
               value={formData.module_id || ""}
               onChange={(e) =>
-                handleChange("module_id", e.target.value || null)
+                handleChange("module_id", e.target.value || "")
               }
               className="w-full h-10 px-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-sm"
             >

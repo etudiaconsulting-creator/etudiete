@@ -22,7 +22,7 @@ export default function ConfidentialitePage() {
         Responsable du traitement
       </h2>
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
-        Le responsable du traitement des données est ETUDIET, joignable à l'adresse
+        Le responsable du traitement des données est ETUDIET, joignable à l&apos;adresse
         contact@etudiet.fr.
       </p>
 
@@ -33,8 +33,8 @@ export default function ConfidentialitePage() {
         Nous collectons les données suivantes :
       </p>
       <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 mb-3 space-y-1">
-        <li>Nom complet et adresse email (lors de l'inscription)</li>
-        <li>Année d'examen et année d'études</li>
+        <li>Nom complet et adresse email (lors de l&apos;inscription)</li>
+        <li>Année d&apos;examen et année d&apos;études</li>
         <li>Données de progression (scores, réponses aux quiz, avancement)</li>
         <li>Données de paiement (traitées par Stripe, non stockées sur nos serveurs)</li>
       </ul>
@@ -53,8 +53,8 @@ export default function ConfidentialitePage() {
         Base légale
       </h2>
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
-        Le traitement de vos données repose sur l'exécution du contrat (fourniture du service)
-        et votre consentement (lors de l'inscription).
+        Le traitement de vos données repose sur l&apos;exécution du contrat (fourniture du service)
+        et votre consentement (lors de l&apos;inscription).
       </p>
 
       <h2 className="text-xl font-medium text-gray-900 dark:text-white mt-8 mb-4">
@@ -72,11 +72,11 @@ export default function ConfidentialitePage() {
         Conformément au RGPD, vous disposez des droits suivants :
       </p>
       <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 mb-3 space-y-1">
-        <li>Droit d'accès à vos données personnelles</li>
+        <li>Droit d&apos;accès à vos données personnelles</li>
         <li>Droit de rectification des données inexactes</li>
-        <li>Droit à l'effacement (droit à l'oubli)</li>
+        <li>Droit à l&apos;effacement (droit à l&apos;oubli)</li>
         <li>Droit à la portabilité de vos données</li>
-        <li>Droit d'opposition au traitement</li>
+        <li>Droit d&apos;opposition au traitement</li>
         <li>Droit de retirer votre consentement à tout moment</li>
       </ul>
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
@@ -97,8 +97,8 @@ export default function ConfidentialitePage() {
       </h2>
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
         Nous utilisons uniquement des cookies techniques nécessaires au fonctionnement
-        du site (session d'authentification, préférence de thème sombre/clair).
-        Aucun cookie de tracking ou publicitaire n'est utilisé.
+        du site (session d&apos;authentification, préférence de thème sombre/clair).
+        Aucun cookie de tracking ou publicitaire n&apos;est utilisé.
       </p>
 
       <p className="text-xs text-gray-400 dark:text-gray-500 mt-12">

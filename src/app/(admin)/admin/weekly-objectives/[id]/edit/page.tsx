@@ -100,7 +100,7 @@ export default function EditWeeklyObjectivePage() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Modifier l'objectif hebdomadaire</h1>
+      <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Modifier l&apos;objectif hebdomadaire</h1>
 
       <Card>
         <div className="space-y-6">
@@ -187,7 +187,7 @@ export default function EditWeeklyObjectivePage() {
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-gray-500 dark:text-gray-400">Sélectionnez un module d'abord</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Sélectionnez un module d&apos;abord</p>
             )}
           </div>
 
@@ -216,7 +216,7 @@ export default function EditWeeklyObjectivePage() {
                 ))}
               </div>
             ) : (
-              <p className="text-sm text-gray-500 dark:text-gray-400">Sélectionnez un module d'abord</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Sélectionnez un module d&apos;abord</p>
             )}
           </div>
 

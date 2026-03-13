@@ -35,7 +35,7 @@ export default function NewCommonMistakePage() {
     order_index: 0,
   });
 
-  const handleChange = (field: string, value: any) => {
+  const handleChange = (field: string, value: string | number) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 

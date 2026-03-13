@@ -34,9 +34,9 @@ export default function MentionsLegalesPage() {
         Propriété intellectuelle
       </h2>
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
-        L'ensemble du contenu du site etudiet.fr (textes, images, logos, fiches de cours, exercices, quiz)
-        est protégé par le droit d'auteur. Toute reproduction, représentation, modification ou adaptation,
-        totale ou partielle, est interdite sans l'accord préalable et écrit de l'éditeur.
+        L&apos;ensemble du contenu du site etudiet.fr (textes, images, logos, fiches de cours, exercices, quiz)
+        est protégé par le droit d&apos;auteur. Toute reproduction, représentation, modification ou adaptation,
+        totale ou partielle, est interdite sans l&apos;accord préalable et écrit de l&apos;éditeur.
       </p>
 
       <h2 className="text-xl font-medium text-gray-900 dark:text-white mt-8 mb-4">
@@ -55,16 +55,16 @@ export default function MentionsLegalesPage() {
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
         Le site utilise des cookies strictement nécessaires au fonctionnement du service
         (authentification, préférences de thème). Aucun cookie publicitaire ou de tracking
-        n'est utilisé.
+        n&apos;est utilisé.
       </p>
 
       <h2 className="text-xl font-medium text-gray-900 dark:text-white mt-8 mb-4">
         Limitation de responsabilité
       </h2>
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
-        ETUDIET s'efforce de fournir des contenus pédagogiques de qualité mais ne garantit pas
-        l'exactitude ou l'exhaustivité des informations. L'utilisation du site se fait sous la
-        responsabilité de l'utilisateur. ETUDIET ne saurait être tenu responsable des résultats
+        ETUDIET s&apos;efforce de fournir des contenus pédagogiques de qualité mais ne garantit pas
+        l&apos;exactitude ou l&apos;exhaustivité des informations. L&apos;utilisation du site se fait sous la
+        responsabilité de l&apos;utilisateur. ETUDIET ne saurait être tenu responsable des résultats
         obtenus aux examens.
       </p>
 

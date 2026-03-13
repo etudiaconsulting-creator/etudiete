@@ -16,7 +16,7 @@ import {
 import Link from "next/link";
 import { useQuiz, QuizQuestion } from "@/lib/hooks/use-quiz";
 import { useAuth } from "@/components/layout/auth-provider";
-import { hasFullAccess, getQuestionLimit } from "@/lib/utils/subscription";
+import { getQuestionLimit } from "@/lib/utils/subscription";
 import { useParams } from "next/navigation";
 import { BookmarkButton } from "@/components/ui/bookmark-button";
 

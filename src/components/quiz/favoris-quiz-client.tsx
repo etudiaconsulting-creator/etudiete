@@ -38,7 +38,6 @@ const allQuestions: QuizQuestion[] = [
   { id: "q15", chapterId: "e2-ch1", moduleCode: "E2", chapterTitle: "Biochimie structurale : glucides", questionType: "mcq", questionText: "Quelle est la formule chimique du glucose ?", options: [{ id: "a", text: "C5H10O5", isCorrect: false }, { id: "b", text: "C6H12O6", isCorrect: true }, { id: "c", text: "C7H14O7", isCorrect: false }, { id: "d", text: "C12H22O11", isCorrect: false }], correctAnswer: "", explanation: "Le glucose a pour formule brute C6H12O6. C'est un hexose (6 carbones).", difficulty: 1, tags: ["glucose", "formule", "structure"], examLink: null },
 ];
 
-const questionMap = new Map(allQuestions.map((q) => [q.id, q]));
 
 function getScoreColor(pct: number): string {
   if (pct < 50) return "text-red-500";

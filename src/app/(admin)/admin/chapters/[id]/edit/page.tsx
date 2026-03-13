@@ -51,7 +51,7 @@ export default function EditChapterPage() {
     fetchData();
   }, [chapterId]);
 
-  const handleChange = (field: keyof Chapter, value: any) => {
+  const handleChange = (field: keyof Chapter, value: string | number) => {
     if (formData) {
       setFormData({ ...formData, [field]: value });
     }

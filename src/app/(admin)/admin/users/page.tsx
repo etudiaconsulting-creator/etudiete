@@ -169,7 +169,7 @@ export default function UsersPage() {
                     Abonnement
                   </th>
                   <th className="text-left py-3 px-4 text-gray-500 dark:text-gray-400 font-medium">
-                    Date d'inscription
+                    Date d&apos;inscription
                   </th>
                   <th className="text-left py-3 px-4 text-gray-500 dark:text-gray-400 font-medium">
                     Dernière activité

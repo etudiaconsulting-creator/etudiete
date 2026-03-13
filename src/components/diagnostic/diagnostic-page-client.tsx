@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Trophy,
-  Target,
   CheckCircle2,
   AlertTriangle,
   XCircle,
@@ -312,10 +311,10 @@ export default function DiagnosticPageClient() {
       };
 
       diagnosticQuestions.forEach((q) => {
-        const module = q.moduleCode;
-        newScores[module].total += 1;
+        const mod = q.moduleCode;
+        newScores[mod].total += 1;
         const isCorrect = !quiz.wrongAnswers.find((a) => a.questionId === q.id);
-        if (isCorrect) newScores[module].correct += 1;
+        if (isCorrect) newScores[mod].correct += 1;
       });
 
       setModuleScores(newScores);
