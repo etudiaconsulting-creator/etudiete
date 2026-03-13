@@ -1,0 +1,13 @@
+{
+  "name": "ETUDIET — Préparation BTS Diététique",
+  "short_name": "ETUDIET",
+  "description": "Programme de révision personnalisé pour le BTS Diététique et Nutrition",
+  "start_url": "/dashboard",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0F6E52",
+  "lang": "fr",
+  "icons": [
+    { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
