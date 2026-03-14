@@ -407,6 +407,12 @@ export function Sidebar() {
 
           {/* Links */}
           <div className="px-3 py-3 space-y-1">
+            {isAdmin && (
+              <>
+                <DrawerLink href="/admin" icon={<Shield className="w-5 h-5" />} label="Administration" active={pathname.startsWith("/admin")} onClose={() => setDrawerOpen(false)} />
+                <div className="my-2 border-t border-gray-200 dark:border-gray-700 mx-3" />
+              </>
+            )}
             <DrawerLink href="/dashboard" icon={<LayoutDashboard className="w-5 h-5" />} label="Dashboard" active={pathname === "/dashboard"} onClose={() => setDrawerOpen(false)} />
             <DrawerLink href="/dashboard/modules" icon={<BookOpen className="w-5 h-5" />} label="Mes modules" active={pathname.includes("/modules")} onClose={() => setDrawerOpen(false)} />
             <DrawerLink href="/dashboard/quiz-du-jour" icon={<Zap className="w-5 h-5" />} label="Quiz du jour" active={pathname.includes("/quiz")} onClose={() => setDrawerOpen(false)} badge={dueQuestions > 0 ? dueQuestions : undefined} />
