@@ -29,6 +29,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       .select("*")
       .eq("id", userId)
       .single();
+    console.log("[AuthProvider] fetchProfile result:", { data: data ? { role: (data as Profile).role, id: (data as Profile).id } : null, error: error?.message });
     if (!error && data) {
       setProfile(data as Profile);
     } else {
@@ -45,18 +46,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
+      console.log("[AuthProvider] onAuthStateChange:", event, "session:", !!session, "user:", session?.user?.email);
       const currentUser = session?.user ?? null;
       setUser(currentUser);
 
       if (currentUser) {
+        console.log("[AuthProvider] Fetching profile for:", currentUser.id);
         await fetchProfile(currentUser.id);
+        console.log("[AuthProvider] Profile fetched");
       } else {
+        console.log("[AuthProvider] No user, clearing profile");
         setProfile(null);
       }
 
       // Mark loading as done after the first event (INITIAL_SESSION)
       if (!initialDone) {
         initialDone = true;
+        console.log("[AuthProvider] Setting loading=false");
         setLoading(false);
       }
     });
