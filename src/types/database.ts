@@ -146,6 +146,8 @@ export interface CommonMistake {
   created_at: string;
 }
 
+export type VideoCategory = 'cours' | 'methode' | 'annale' | 'conseil' | 'temoignage';
+
 export type BookmarkContentType = 'chapter' | 'question' | 'exercise' | 'glossary_term';
 
 export interface UserBookmark {
@@ -154,6 +156,18 @@ export interface UserBookmark {
   content_type: BookmarkContentType;
   content_id: string;
   note: string | null;
+  created_at: string;
+}
+
+export interface Video {
+  id: string;
+  module_id: string | null;
+  title: string;
+  description: string | null;
+  youtube_video_id: string;
+  category: VideoCategory;
+  order_index: number;
+  is_free: boolean;
   created_at: string;
 }
 
@@ -232,6 +246,11 @@ export interface Database {
         Row: CommonMistake;
         Insert: Partial<CommonMistake> & { module_code: string; title: string; description: string; impact: MistakeImpact; tip: string };
         Update: Partial<CommonMistake>;
+      };
+      videos: {
+        Row: Video;
+        Insert: Partial<Video> & { title: string; youtube_video_id: string };
+        Update: Partial<Video>;
       };
       user_bookmarks: {
         Row: UserBookmark;

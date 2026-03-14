@@ -8,6 +8,7 @@ import {
   BookOpen,
   Zap,
   ClipboardList,
+  Play,
   Wrench,
   AlertTriangle,
   Star,
@@ -191,6 +192,12 @@ export function Sidebar() {
           <Link href="/dashboard/exercises" className={linkClass("/dashboard/exercises")}>
             <ClipboardList className="w-5 h-5 flex-shrink-0" />
             {!collapsed && <span>Exercices</span>}
+          </Link>
+
+          {/* 4b. Vidéos */}
+          <Link href="/dashboard/videos" className={linkClass("/dashboard/videos")}>
+            <Play className="w-5 h-5 flex-shrink-0" />
+            {!collapsed && <span>Vidéos</span>}
           </Link>
 
           {/* ─── séparateur ─── */}
@@ -417,6 +424,7 @@ export function Sidebar() {
             <DrawerLink href="/dashboard/modules" icon={<BookOpen className="w-5 h-5" />} label="Mes modules" active={pathname.includes("/modules")} onClose={() => setDrawerOpen(false)} />
             <DrawerLink href="/dashboard/quiz-du-jour" icon={<Zap className="w-5 h-5" />} label="Quiz du jour" active={pathname.includes("/quiz")} onClose={() => setDrawerOpen(false)} badge={dueQuestions > 0 ? dueQuestions : undefined} />
             <DrawerLink href="/dashboard/exercises" icon={<ClipboardList className="w-5 h-5" />} label="Exercices" active={pathname.includes("/exercises")} onClose={() => setDrawerOpen(false)} />
+            <DrawerLink href="/dashboard/videos" icon={<Play className="w-5 h-5" />} label="Vidéos" active={pathname.includes("/videos")} onClose={() => setDrawerOpen(false)} />
 
             <div className="my-2 border-t border-gray-200 dark:border-gray-700 mx-3" />
 
