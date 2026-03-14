@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import { User } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
 import { Profile } from "@/types/database";
@@ -23,53 +23,57 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
   const supabase = createClient();
 
+  const fetchProfile = useCallback(async (userId: string) => {
+    const { data, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", userId)
+      .single();
+    if (!error && data) {
+      setProfile(data as Profile);
+    } else {
+      setProfile(null);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
-    const getSession = async () => {
-      try {
-        const {
-          data: { user },
-        } = await supabase.auth.getUser();
-        setUser(user);
-
-        if (user) {
-          const { data, error } = await supabase
-            .from("profiles")
-            .select("*")
-            .eq("id", user.id)
-            .single();
-          if (!error && data) {
-            setProfile(data as Profile);
-          }
-        }
-      } catch (err) {
-        console.error("Auth error:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    getSession();
+    // Use onAuthStateChange as the single source of truth.
+    // It fires INITIAL_SESSION immediately, then TOKEN_REFRESHED / SIGNED_OUT etc.
+    let initialDone = false;
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      setUser(session?.user ?? null);
+    } = supabase.auth.onAuthStateChange(async (event, session) => {
+      const currentUser = session?.user ?? null;
+      setUser(currentUser);
 
-      if (session?.user) {
-        const { data, error } = await supabase
-          .from("profiles")
-          .select("*")
-          .eq("id", session.user.id)
-          .single();
-        if (!error && data) {
-          setProfile(data as Profile);
-        }
+      if (currentUser) {
+        await fetchProfile(currentUser.id);
       } else {
         setProfile(null);
       }
+
+      // Mark loading as done after the first event (INITIAL_SESSION)
+      if (!initialDone) {
+        initialDone = true;
+        setLoading(false);
+      }
     });
 
-    return () => subscription.unsubscribe();
+    // Safety timeout: if onAuthStateChange never fires (broken client),
+    // stop loading after 5 seconds to prevent infinite spinner
+    const timeout = setTimeout(() => {
+      if (!initialDone) {
+        initialDone = true;
+        setLoading(false);
+      }
+    }, 5000);
+
+    return () => {
+      subscription.unsubscribe();
+      clearTimeout(timeout);
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
