@@ -25,23 +25,27 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const getSession = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      setUser(user);
+      try {
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
+        setUser(user);
 
-      if (user) {
-        const { data, error } = await supabase
-          .from("profiles")
-          .select("*")
-          .eq("id", user.id)
-          .single();
-        if (!error && data) {
-          setProfile(data as Profile);
+        if (user) {
+          const { data, error } = await supabase
+            .from("profiles")
+            .select("*")
+            .eq("id", user.id)
+            .single();
+          if (!error && data) {
+            setProfile(data as Profile);
+          }
         }
+      } catch (err) {
+        console.error("Auth error:", err);
+      } finally {
+        setLoading(false);
       }
-
-      setLoading(false);
     };
 
     getSession();
