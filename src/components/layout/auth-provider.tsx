@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, useCallback } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { User } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
 import { Profile } from "@/types/database";
@@ -21,59 +21,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
+  const [authReady, setAuthReady] = useState(false);
   const supabase = createClient();
 
-  const fetchProfile = useCallback(async (userId: string) => {
-    const { data, error } = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("id", userId)
-      .single();
-    console.log("[AuthProvider] fetchProfile result:", { data: data ? { role: (data as Profile).role, id: (data as Profile).id } : null, error: error?.message });
-    if (!error && data) {
-      setProfile(data as Profile);
-    } else {
-      setProfile(null);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+  // Step 1: Listen for auth state — only set user, no DB queries inside callback
   useEffect(() => {
-    // Use onAuthStateChange as the single source of truth.
-    // It fires INITIAL_SESSION immediately, then TOKEN_REFRESHED / SIGNED_OUT etc.
-    let initialDone = false;
-
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (event, session) => {
-      console.log("[AuthProvider] onAuthStateChange:", event, "session:", !!session, "user:", session?.user?.email);
-      const currentUser = session?.user ?? null;
-      setUser(currentUser);
-
-      if (currentUser) {
-        console.log("[AuthProvider] Fetching profile for:", currentUser.id);
-        await fetchProfile(currentUser.id);
-        console.log("[AuthProvider] Profile fetched");
-      } else {
-        console.log("[AuthProvider] No user, clearing profile");
-        setProfile(null);
-      }
-
-      // Mark loading as done after the first event (INITIAL_SESSION)
-      if (!initialDone) {
-        initialDone = true;
-        console.log("[AuthProvider] Setting loading=false");
-        setLoading(false);
-      }
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+      setAuthReady(true);
     });
 
-    // Safety timeout: if onAuthStateChange never fires (broken client),
-    // stop loading after 5 seconds to prevent infinite spinner
+    // Safety timeout
     const timeout = setTimeout(() => {
-      if (!initialDone) {
-        initialDone = true;
-        setLoading(false);
-      }
+      setAuthReady(true);
     }, 5000);
 
     return () => {
@@ -82,6 +44,40 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Step 2: Fetch profile AFTER user state is set (separate render cycle)
+  // This ensures the Supabase client's internal session is initialized
+  useEffect(() => {
+    if (!authReady) return;
+
+    if (!user) {
+      setProfile(null);
+      setLoading(false);
+      return;
+    }
+
+    let cancelled = false;
+
+    supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", user.id)
+      .single()
+      .then(({ data, error }) => {
+        if (cancelled) return;
+        if (!error && data) {
+          setProfile(data as Profile);
+        } else {
+          setProfile(null);
+        }
+        setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, authReady]);
 
   return (
     <AuthContext.Provider value={{ user, profile, loading }}>
